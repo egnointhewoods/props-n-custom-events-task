@@ -1,7 +1,7 @@
 <template>
   <form @submit="updateUser">
-    <input @keyup="setName" type="text" placeholder="name" v-model="name" />
-    <input @keyup="setAge" type="number" placeholder="age" v-model="age" />
+    <input type="text" placeholder="name" v-model="name" />
+    <input type="number" placeholder="age" v-model="age" />
     <button>Set</button>
   </form>
 </template>
@@ -14,12 +14,6 @@ export default {
     };
   },
   methods: {
-    setName(event) {
-      this.name = event.target.value;
-    },
-    setAge(event) {
-      this.age = event.target.value;
-    },
     updateUser(e) {
       e.preventDefault();
       this.$emit("set-userInfo", this.name, this.age);
